@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class PlayerState
 {
+    protected float xInput;
+
     protected Player player;
     protected PlayerStateMachine stateMachine;
     private string animBoolName;
+
+    protected Rigidbody2D rb;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
     {
@@ -16,11 +20,12 @@ public class PlayerState
     public virtual void Enter()
     {
         player.anim.SetBool(animBoolName, true);
+        rb = player.rb;
     }
 
     public virtual void Update()
     {
-        Debug.Log("I am in " + this.animBoolName + " State");
+        xInput = Input.GetAxisRaw("Horizontal");
     }
 
     public virtual void Exit()
