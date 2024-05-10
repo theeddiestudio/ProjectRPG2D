@@ -22,5 +22,8 @@ public class PlayerAirState : PlayerState
 
         if (player.isGrounded())
             stateMachine.ChangeState(player.idleState);
+
+        if (xInput != 0)
+            player.SetVelocity(xInput * 0.8f * player.moveSpeed, rb.velocity.y);
     }
 }

@@ -7,6 +7,13 @@ public class Player : MonoBehaviour
     public float moveSpeed = 7.0f;
     public float jumpForce = 15.0f;
 
+    [Header("Dash Info")]
+    public float dashSpeed;
+    public float dashDuration;
+    [SerializeField] private float dashCooldown;
+    private float dashUsageTimer;
+    public float dashDir {  get; private set; }
+
     [Header("Collision Check")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckDistance;
@@ -26,6 +33,9 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
     public PlayerAirState airState { get; private set; }
+    public PlayerWallSlideState wallSlide { get; private set; }
+    public PlayerDashState dashState { get; private set; }
+
 
     private void Awake()
     {
@@ -35,6 +45,8 @@ public class Player : MonoBehaviour
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         airState = new PlayerAirState(this, stateMachine, "Jump");
+        wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
+        dashState = new PlayerDashState(this, stateMachine, "Dash");
     }
 
     private void Start()
@@ -47,6 +59,24 @@ public class Player : MonoBehaviour
     private void Update()
     {
         stateMachine.currentState.Update();
+        CheckInputDash();
+    }
+
+    private void CheckInputDash()
+    {
+        dashUsageTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0)
+        {
+            dashDir = Input.GetAxisRaw("Horizontal");
+
+            dashUsageTimer = dashCooldown;
+
+            if (dashDir == 0)
+                dashDir = facingDir;
+
+            stateMachine.ChangeState(dashState);
+        }
     }
 
     public void Flip()

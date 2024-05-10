@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerState
 {
     protected float xInput;
+    protected float stateTimer;
 
     protected Player player;
     protected PlayerStateMachine stateMachine;
@@ -25,6 +26,8 @@ public class PlayerState
 
     public virtual void Update()
     {
+        stateTimer -= Time.deltaTime;
+
         xInput = Input.GetAxisRaw("Horizontal");
         player.anim.SetFloat("yVelocity" , rb.velocity.y);
     }
