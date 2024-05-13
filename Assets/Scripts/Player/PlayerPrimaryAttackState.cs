@@ -46,7 +46,7 @@ public class PlayerPrimaryAttackState : PlayerState
 
         // rb.velocity = new Vector2(0, 0);
         if (stateTimer < 0)
-            player.ZeroVelocity();
+            player.SetVelocityZero();
 
         if (triggerCalled)
             stateMachine.ChangeState(player.idleState);
