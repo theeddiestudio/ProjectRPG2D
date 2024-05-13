@@ -14,6 +14,7 @@ public class PlayerPrimaryAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        xInput = 0; // We need this to fix bug on attack direction. [Section - battle system]
 
         if (comboCounter > 2 || Time.time >= lastAttackTime + comboWindow)
             comboCounter = 0;
@@ -24,7 +25,7 @@ public class PlayerPrimaryAttackState : PlayerState
 
         if (xInput != 0)
             attackDir = xInput;
-
+            
         player.SetVelocity(player.attackMovement[comboCounter].x * attackDir, player.attackMovement[comboCounter].y);
 
         stateTimer = 0.1f;
