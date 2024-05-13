@@ -10,16 +10,20 @@ public class Player : Entity
     public float moveSpeed = 7.0f;
     public float jumpForce = 15.0f;
 
-    [Header("Dash Info")]
-    public float dashSpeed;
-    public float dashDuration;
-    [SerializeField] private float dashCooldown;
-    private float dashUsageTimer;
+    // [Header("Dash Info")]
+    // public float dashSpeed;
+    // public float dashDuration;
+    // [SerializeField] private float dashCooldown;
+    
+    // private float dashUsageTimer;
+    
     public float dashDir {  get; private set; }
 
     [Header("Attack Info")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = 0.2f;
+
+    public SkillManager skill {  get; private set; }
 
     #region States
     public PlayerStateMachine stateMachine {  get; private set; }
@@ -57,6 +61,8 @@ public class Player : Entity
     {
         base.Start();
         stateMachine.Initialize(idleState);
+
+        skill = SkillManager.manager;
     }
 
     protected override void Update()
@@ -71,13 +77,10 @@ public class Player : Entity
         if(isWallDetected())
             return;
 
-        dashUsageTimer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.manager.dash.CanUseSkill())
         {
             dashDir = Input.GetAxisRaw("Horizontal");
-
-            dashUsageTimer = dashCooldown;
 
             if (dashDir == 0)
                 dashDir = facingDir;

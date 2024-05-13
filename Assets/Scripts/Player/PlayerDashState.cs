@@ -10,7 +10,9 @@ public class PlayerDashState : PlayerState
     {
         base.Enter();
 
-        stateTimer = player.dashDuration;
+        player.skill.clone.CreateClone(player.transform);
+
+        stateTimer = SkillManager.manager.dash.dashDuration;
     }
 
     public override void Exit()
@@ -27,7 +29,7 @@ public class PlayerDashState : PlayerState
          if (player.isWallDetected() && !player.isGrounded())
             stateMachine.ChangeState(player.wallSlide);
 
-        player.SetVelocity(player.dashSpeed * player.facingDir, 0);
+        player.SetVelocity(SkillManager.manager.dash.dashSpeed * player.facingDir, 0);
 
         if (stateTimer < 0)
             stateMachine.ChangeState(player.idleState);
