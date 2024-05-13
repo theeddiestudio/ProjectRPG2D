@@ -45,7 +45,9 @@ public class Sword_Skill : Skill
         Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
 
         // newSwordScript.SetupSword(launchForce, swordGravity);
-        newSwordScript.SetupSword(finalDir, swordGravity);
+        newSwordScript.SetupSword(player, finalDir, swordGravity);
+
+        player.AssignNewSword(newSword);
 
         ActivateDots(false);
     }

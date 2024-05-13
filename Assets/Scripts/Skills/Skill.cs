@@ -27,8 +27,6 @@ public class Skill : MonoBehaviour
             return true;
         }
 
-        Debug.Log("Dash is on cooldown");
-
         return false;
     }
 

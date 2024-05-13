@@ -24,6 +24,7 @@ public class Player : Entity
     public float counterAttackDuration = 0.2f;
 
     public SkillManager skill {  get; private set; }
+    public GameObject sword { get; private set; }
 
     #region States
     public PlayerStateMachine stateMachine {  get; private set; }
@@ -75,6 +76,16 @@ public class Player : Entity
         base.Update();
         stateMachine.currentState.Update();
         CheckInputDash();
+    }
+
+    public void AssignNewSword(GameObject _newSword)
+    {
+        sword = _newSword;
+    }
+
+    public void ClearSword()
+    {
+        Destroy(sword);
     }
 
     private void CheckInputDash()
