@@ -9,6 +9,8 @@ public class PlayerAimSwordState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+        player.skill.sword.ActivateDots(true);
     }
 
     public override void Exit()
