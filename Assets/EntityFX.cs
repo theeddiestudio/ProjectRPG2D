@@ -6,8 +6,8 @@ public class EntityFX : MonoBehaviour
     private SpriteRenderer sr;
 
     [Header("Flash FX")]
-    [SerializeField] private Material[] hitMaterial;
-    [SerializeField] private float flashTime = 0.06f;
+    [SerializeField] private Material hitMaterial;
+    [SerializeField] private float flashTime = 0.2f;
     private Material originalMaterial;
 
     private void Start()
@@ -18,18 +18,25 @@ public class EntityFX : MonoBehaviour
 
     private IEnumerator FlashFX()
     {
-        sr.material = hitMaterial[0];
+        sr.material = hitMaterial;
 
         yield return new WaitForSeconds(flashTime);
 
         sr.material = originalMaterial;
+    }
 
-        yield return new WaitForSeconds(flashTime);
+    private void RedColorBlink()
+    {
+        if(sr.color != Color.white)
+            sr.color = Color.white;
+        else
+            sr.color = Color.red;
+    }
 
-        sr.material = hitMaterial[1];
+    private void CancelRedBlink()
+    {
+        CancelInvoke();
 
-        yield return new WaitForSeconds(flashTime);
-
-        sr.material = originalMaterial;
+        sr.color = Color.white;
     }
 }
