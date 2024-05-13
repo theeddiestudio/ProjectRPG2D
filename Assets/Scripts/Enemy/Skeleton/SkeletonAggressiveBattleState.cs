@@ -26,6 +26,7 @@ public class SkeletonAggressiveBattleState : SkeletonBattleState
             moveDir = 1;
         else if(player.position.x < enemy.transform.position.x)
             moveDir = -1;
+        else moveDir = 0;
 
         enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
     }

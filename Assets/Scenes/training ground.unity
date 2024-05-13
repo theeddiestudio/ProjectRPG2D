@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28475196}
   - component: {fileID: 28475195}
+  - component: {fileID: 28475199}
   - component: {fileID: 28475198}
   - component: {fileID: 28475197}
   m_Layer: 3
@@ -150,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82918d6045ce0a54097b1d4071689679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCheck: {fileID: 786906510}
+  attackCheckRadius: 0.8
   groundCheck: {fileID: 1830449847}
   groundCheckDistance: 0.15
   wallCheck: {fileID: 1017303376}
@@ -157,6 +160,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  knockBackDirection: {x: 0, y: 0}
+  knockBackDuration: 0
   moveSpeed: 7
   jumpForce: 16
   dashSpeed: 25
@@ -182,6 +187,7 @@ Transform:
   - {fileID: 463940607}
   - {fileID: 1830449847}
   - {fileID: 1017303376}
+  - {fileID: 786906510}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &28475197
@@ -248,6 +254,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06695312, y: -0.328022}
   m_Size: {x: 0.8961648, y: 2.0157351}
   m_Direction: 0
+--- !u!114 &28475199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28475194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f7b97a84b492d4b8f30b2a7813c6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMaterial:
+  - {fileID: 2100000, guid: 150434a092ce87346b7f99751104b65c, type: 2}
+  - {fileID: 2100000, guid: fb2bf0aadf7180a42a126961236c2de8, type: 2}
+  flashTime: 0.05
 --- !u!1 &174317895
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +695,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &786906509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786906510}
+  m_Layer: 3
+  m_Name: AttackCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &786906510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786906509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.38, y: -0.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 28475196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017303375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1551,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallexEffect: 1
+--- !u!1 &1529939892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1529939893}
+  m_Layer: 0
+  m_Name: AttackCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1529939893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529939892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.814, y: -0.513, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1703929689}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702424032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2838,9 +2922,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1703929689}
   - component: {fileID: 1703929690}
+  - component: {fileID: 1703929693}
   - component: {fileID: 1703929692}
   - component: {fileID: 1703929691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2863,6 +2948,7 @@ Transform:
   - {fileID: 2145557961}
   - {fileID: 1307477334}
   - {fileID: 1252310990}
+  - {fileID: 1529939893}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1703929690
@@ -2877,6 +2963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db16cbc633620364fb16c25d0041eb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCheck: {fileID: 1529939893}
+  attackCheckRadius: 1.2
   groundCheck: {fileID: 1307477334}
   groundCheckDistance: 0.2
   wallCheck: {fileID: 1252310990}
@@ -2884,6 +2972,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  knockBackDirection: {x: 9, y: 12}
+  knockBackDuration: 0.07
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
@@ -2892,8 +2982,8 @@ MonoBehaviour:
   idleTime: 1.4
   battleTime: 7
   battleCooldownDistance: 25
-  attackDistance: 1.6
-  attackCooldown: 0.4
+  attackDistance: 1.8
+  attackCooldown: 1
   lastTimeAttacked: 0
   sneakUpDistance: 3
 --- !u!61 &1703929691
@@ -2957,7 +3047,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2969,6 +3059,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1703929693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703929688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f7b97a84b492d4b8f30b2a7813c6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMaterial:
+  - {fileID: 2100000, guid: 150434a092ce87346b7f99751104b65c, type: 2}
+  - {fileID: 2100000, guid: fb2bf0aadf7180a42a126961236c2de8, type: 2}
+  flashTime: 0.06
 --- !u!1 &1781825349
 GameObject:
   m_ObjectHideFlags: 0
