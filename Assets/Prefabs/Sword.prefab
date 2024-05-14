@@ -110,8 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199ff88d72b38a34cbe76086fd78ff66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordReturnSpeed: 20
-  bounceSpeed: 20
 --- !u!1 &5512824944479062865
 GameObject:
   m_ObjectHideFlags: 0

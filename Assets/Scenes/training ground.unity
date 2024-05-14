@@ -1219,7 +1219,7 @@ MonoBehaviour:
   attackCheck: {fileID: 1022241095}
   attackCheckRadius: 1.2
   groundCheck: {fileID: 1837356143}
-  groundCheckDistance: 0.2
+  groundCheckDistance: 1
   wallCheck: {fileID: 1244844912}
   wallCheckDistance: 1.2
   whatIsGround:
@@ -1571,18 +1571,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  swordType: 2
+  swordType: 1
   swordPrefab: {fileID: 987571684151246290, guid: c306c96ec0c94c544b16a9fcadfdca68, type: 3}
   launchForce: {x: 35, y: 25}
   swordGravity: 4.5
+  swordReturnSpeed: 15
+  freezeTimeDuration: 1.5
   dotPrefab: {fileID: 1081996774}
   dotsParent: {fileID: 963669110}
   numberOfDots: 20
   spaceBetweenDots: 0.07
   bounceAmount: 5
   bounceGravity: 5
+  bounceSpeed: 20
   pierceAmount: 2
   pierceGravity: 0.5
+  hitCooldown: 0.35
+  maxTravelDistance: 7
+  spinDuration: 5
+  spinGravity: 1
 --- !u!1 &944944717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2679,7 @@ MonoBehaviour:
   attackCheck: {fileID: 1064135662}
   attackCheckRadius: 1.2
   groundCheck: {fileID: 2118020819}
-  groundCheckDistance: 0.2
+  groundCheckDistance: 1
   wallCheck: {fileID: 1664412143}
   wallCheckDistance: 1.2
   whatIsGround:
@@ -3124,7 +3131,7 @@ MonoBehaviour:
   attackCheck: {fileID: 980677537}
   attackCheckRadius: 1.2
   groundCheck: {fileID: 1030967333}
-  groundCheckDistance: 0.2
+  groundCheckDistance: 1
   wallCheck: {fileID: 24673780}
   wallCheckDistance: 1.2
   whatIsGround:
@@ -3456,7 +3463,7 @@ MonoBehaviour:
   attackCheck: {fileID: 881196793}
   attackCheckRadius: 1.2
   groundCheck: {fileID: 1004959036}
-  groundCheckDistance: 0.2
+  groundCheckDistance: 1
   wallCheck: {fileID: 1572111139}
   wallCheckDistance: 1.2
   whatIsGround:
@@ -3513,7 +3520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 987571684151246290, guid: c306c96ec0c94c544b16a9fcadfdca68, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7880818354930423239, guid: c306c96ec0c94c544b16a9fcadfdca68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4828,7 +4835,7 @@ MonoBehaviour:
   attackCheck: {fileID: 1529939893}
   attackCheckRadius: 1.2
   groundCheck: {fileID: 1307477334}
-  groundCheckDistance: 0.2
+  groundCheckDistance: 1
   wallCheck: {fileID: 1252310990}
   wallCheckDistance: 1.2
   whatIsGround:
