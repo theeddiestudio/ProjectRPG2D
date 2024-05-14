@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PLayerCatchSwordState : PlayerState
 {
+    private Transform sword;
+
     public PLayerCatchSwordState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -9,6 +11,14 @@ public class PLayerCatchSwordState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
+        sword = player.sword.transform;
+
+        if ((player.transform.position.x > sword.position.x && player.facingDir == 1) ||
+            (player.transform.position.x < sword.position.x && player.facingDir == -1))
+            player.Flip();
+
+        rb.velocity = new Vector2(player.swordReturnImpact * -player.facingDir, rb.velocity.y); // not using SetVelocity for a reason
     }
 
     public override void Exit()
@@ -19,5 +29,8 @@ public class PLayerCatchSwordState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (triggerCalled)
+            stateMachine.ChangeState(player.idleState);
     }
 }

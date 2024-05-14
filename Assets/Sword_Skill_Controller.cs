@@ -46,7 +46,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
             if (Vector2.Distance(transform.position, player.transform.position) <= 0.5f)
             {
-                player.ClearSword();
+                player.CatchSword();
             }
         }
     }

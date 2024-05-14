@@ -164,6 +164,7 @@ MonoBehaviour:
   knockBackDuration: 0
   moveSpeed: 7
   jumpForce: 16
+  swordReturnImpact: 2.5
   attackMovement:
   - {x: 2, y: 3}
   - {x: 1, y: 2}
