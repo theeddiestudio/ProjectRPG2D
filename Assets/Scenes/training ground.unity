@@ -1140,6 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
+  swordType: 0
   swordPrefab: {fileID: 987571684151246290, guid: c306c96ec0c94c544b16a9fcadfdca68, type: 3}
   launchForce: {x: 35, y: 25}
   swordGravity: 4.5
@@ -1147,6 +1148,8 @@ MonoBehaviour:
   dotsParent: {fileID: 963669110}
   numberOfDots: 20
   spaceBetweenDots: 0.07
+  amountOfBounces: 5
+  bounceGravity: 5
 --- !u!1 &944944717
 GameObject:
   m_ObjectHideFlags: 0

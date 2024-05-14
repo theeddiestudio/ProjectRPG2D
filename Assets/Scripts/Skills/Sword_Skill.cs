@@ -1,7 +1,17 @@
 using UnityEngine;
 
+public enum SwordType
+{
+    Regular,
+    Bounce,
+    Pierce,
+    Spin
+}
+
 public class Sword_Skill : Skill
 {
+    public SwordType swordType = SwordType.Regular;
+
     [Header("Skill Info")]
     [SerializeField] private GameObject swordPrefab;
     [SerializeField] private Vector2 launchForce;
@@ -17,6 +27,10 @@ public class Sword_Skill : Skill
 
     private GameObject[] dots;
 
+    [Header("Bounce Info")]
+    [SerializeField] private int amountOfBounces;
+    [SerializeField] private float bounceGravity;
+
     protected override void Update()
     {
         if (Input.GetKeyUp(KeyCode.Mouse1))
@@ -24,7 +38,7 @@ public class Sword_Skill : Skill
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            for (int i = 0; i < dots.Length; i++) 
+            for (int i = 0; i < dots.Length; i++)
             {
                 dots[i].transform.position = PositionDots(i * spaceBetweenDots);
             }
@@ -41,9 +55,16 @@ public class Sword_Skill : Skill
     public void CreateSword()
     {
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
-        
+
         Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
 
+        if (swordType == SwordType.Bounce)
+        {
+            swordGravity = bounceGravity;
+            newSwordScript.SetupBounce(true, amountOfBounces);
+        }
+
+        
         // newSwordScript.SetupSword(launchForce, swordGravity);
         newSwordScript.SetupSword(player, finalDir, swordGravity);
 
@@ -52,12 +73,13 @@ public class Sword_Skill : Skill
         ActivateDots(false);
     }
 
+    #region Aiming
     public Vector2 AimDirection()
     {
         Vector2 playerPosition = player.transform.position;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePosition - playerPosition;
-        
+
         return direction;
     }
 
@@ -83,8 +105,10 @@ public class Sword_Skill : Skill
     {
         Vector2 position = (Vector2)player.transform.position + new Vector2(
             AimDirection().normalized.x * launchForce.x,
-            AimDirection().normalized.y * launchForce.y) * t + .5f * (Physics2D.gravity *swordGravity) * t * t;
+            AimDirection().normalized.y * launchForce.y) * t + .5f * (Physics2D.gravity * swordGravity) * t * t;
 
         return position;
     }
+    #endregion
+
 }
