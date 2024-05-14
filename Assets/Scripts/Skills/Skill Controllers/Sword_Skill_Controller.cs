@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.WSA;
 
@@ -11,6 +13,12 @@ public class Sword_Skill_Controller : MonoBehaviour
     private bool canRotate = true;
     private bool isReturning;
     [SerializeField] private float swordReturnSpeed = 12;
+
+    public float bounceSpeed;
+    public bool isBouncing = true;
+    public int amountOfBouncing = 4;
+    public List<Transform> bounceEnemyTargets;
+    private int targetIndex;
 
     private void Awake()
     {
@@ -50,6 +58,26 @@ public class Sword_Skill_Controller : MonoBehaviour
                 player.CatchSword();
             }
         }
+
+        if (isBouncing && bounceEnemyTargets.Count > 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, bounceEnemyTargets[targetIndex].position, bounceSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, bounceEnemyTargets[targetIndex].position) < 0.1f)
+            {
+                targetIndex++;
+                amountOfBouncing--;
+
+                if (amountOfBouncing <= 0)
+                {
+                    isBouncing = false;
+                    isReturning = true;
+                }
+
+                if (targetIndex >= bounceEnemyTargets.Count)
+                    targetIndex = 0;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +86,26 @@ public class Sword_Skill_Controller : MonoBehaviour
         if (isReturning)
             return;
 
-        anim.SetBool("Rotation", false);
+        // bounce check
+        if (collision.GetComponent<Enemy>() != null)
+        {
+            if (isBouncing && bounceEnemyTargets.Count <= 0)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+
+                foreach (var hit in colliders)
+                {
+                    if (hit.GetComponent<Enemy>() != null)
+                        bounceEnemyTargets.Add(hit.transform);
+                }
+            }
+        }
+
+        StuckIntoObject(collision);
+    }
+
+    private void StuckIntoObject(Collider2D collision)
+    {
 
         canRotate = false;
 
@@ -67,6 +114,10 @@ public class Sword_Skill_Controller : MonoBehaviour
         rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
+        if (isBouncing && bounceEnemyTargets.Count > 0)
+            return;
+
+        anim.SetBool("Rotation", false);
         transform.parent = collision.transform;
     }
 }

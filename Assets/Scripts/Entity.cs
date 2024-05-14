@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+
+    public int facingDir = 1;
+    [SerializeField] protected bool facingRight = true;
+    
     [Header("Collision Check")]
     public Transform attackCheck;
     public float attackCheckRadius;
@@ -23,9 +27,6 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Vector2 knockBackDirection;
     [SerializeField] protected float knockBackDuration = 0.07f;
     protected bool isKnocked;
-
-    public int facingDir { get; private set; } = 1;
-    protected bool facingRight = true;
 
     protected virtual void Awake()
     {
