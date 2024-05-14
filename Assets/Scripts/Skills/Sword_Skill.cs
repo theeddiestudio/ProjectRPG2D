@@ -58,6 +58,9 @@ public class Sword_Skill : Skill
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+            ChangeSwordType();
+
         SetupGravity();
     }
 
@@ -137,5 +140,17 @@ public class Sword_Skill : Skill
         return position;
     }
     #endregion
+
+    private void ChangeSwordType()
+    {
+        if (swordType == SwordType.Regular)
+            swordType = SwordType.Bounce;
+        else if (swordType == SwordType.Bounce)
+            swordType = SwordType.Pierce;
+        else if (swordType == SwordType.Pierce)
+            swordType = SwordType.Spin;
+        else
+            swordType = SwordType.Regular;
+    }
 
 }
