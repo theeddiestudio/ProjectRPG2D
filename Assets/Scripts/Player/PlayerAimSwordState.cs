@@ -16,11 +16,15 @@ public class PlayerAimSwordState : PlayerState
     public override void Exit()
     {
         base.Exit();
+
+        player.StartCoroutine("BusyFor", .2f);
     }
 
     public override void Update()
     {
         base.Update();
+
+        player.SetVelocityZero();
 
         if(Input.GetKeyUp(KeyCode.Mouse1))
             stateMachine.ChangeState(player.idleState);

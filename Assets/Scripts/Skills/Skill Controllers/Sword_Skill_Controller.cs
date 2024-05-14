@@ -30,7 +30,8 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     public void ReturnSword()
     {
-        rb.isKinematic = false;
+        // rb.isKinematic = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.parent = null;
         isReturning = true;
     }
@@ -53,6 +54,10 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (isReturning)
+            return;
+
         anim.SetBool("Rotation", false);
 
         canRotate = false;
