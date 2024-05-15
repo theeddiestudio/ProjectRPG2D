@@ -107,8 +107,6 @@ public class Blackhole_Skill_Controller : MonoBehaviour
             else
                 xOffset = -2;
 
-            Debug.Log(targets.Count);
-
             SkillManager.manager.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
 
             amountOfAttacks -= 1;
