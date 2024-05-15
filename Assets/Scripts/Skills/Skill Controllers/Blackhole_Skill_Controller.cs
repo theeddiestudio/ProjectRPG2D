@@ -15,6 +15,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     private bool canShrink;
     private bool canCreateHotkeys = true;
     private bool cloneAttackReleased;
+    private bool canPlayerDisappear = true;
 
 
     private int amountOfAttacks = 4;
@@ -77,15 +78,23 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
     private void ReleaseCloneAttack()
     {
+        if (targets.Count <= 0)
+            return;
+
         DestroyHotKeys();
         cloneAttackReleased = true;
         canCreateHotkeys = false;
-        PlayerManager.manager.player.MakeTransparent(true);
+
+        if (canPlayerDisappear)
+        {
+            canPlayerDisappear = false;
+            PlayerManager.manager.player.MakeTransparent(true);
+        }
     }
 
     private void CloneAttackLogic()
     {
-        if (cloneAttackTimer < 0 && cloneAttackReleased)
+        if (cloneAttackTimer < 0 && cloneAttackReleased && amountOfAttacks > 0)
         {
             cloneAttackTimer = cloneAttackCooldown;
 
