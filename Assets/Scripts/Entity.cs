@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
 
     #region Components
     public Animator anim { get; private set; }
+    public SpriteRenderer sr { get; private set; }
     public Rigidbody2D rb { get; private set; }
 
     public EntityFX fx { get; private set; }
@@ -41,6 +42,7 @@ public class Entity : MonoBehaviour
     protected virtual void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFX>();
     }
@@ -72,6 +74,23 @@ public class Entity : MonoBehaviour
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
     #endregion
+    #region Velocity
+    public void SetVelocity(float xVelocity, float yVelocity)
+    {
+        if (isKnocked)
+            return;
+
+        rb.velocity = new Vector2(xVelocity, yVelocity);
+        FlipController(xVelocity);
+    }
+    public void SetVelocityZero()
+    {
+        if (isKnocked)
+            return;
+
+        rb.velocity = new Vector2(0, 0);
+    }
+    #endregion
     #region Flip
     public virtual void Flip()
     {      
@@ -88,21 +107,12 @@ public class Entity : MonoBehaviour
             Flip();
     }
     #endregion
-    #region Velocity
-    public void SetVelocity(float xVelocity, float yVelocity)
+    
+    public void MakeTransparent(bool _isTransparent)
     {
-        if (isKnocked)
-            return;
-
-        rb.velocity = new Vector2(xVelocity, yVelocity);
-        FlipController(xVelocity);
+        if (_isTransparent)
+            sr.color = Color.clear;
+        else
+            sr.color = Color.white;
     }
-    public void SetVelocityZero()
-    {
-        if (isKnocked)
-            return;
-
-        rb.velocity = new Vector2(0, 0);
-    } 
-    #endregion
 }

@@ -65,6 +65,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         DestroyHotKeys();
         cloneAttackReleased = true;
         canCreateHotkeys = false;
+        PlayerManager.manager.player.MakeTransparent(true);
     }
 
     private void CloneAttackLogic()
@@ -90,11 +91,16 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
             if (amountOfAttacks <= 0)
             {
-                canShrink = true;
-                cloneAttackReleased = false;
-                PlayerManager.manager.player.ExitBlackhole();
+                Invoke("FinishBlackhole", 1f);
             }
         }
+    }
+
+    private void FinishBlackhole()
+    {
+        canShrink = true;
+        cloneAttackReleased = false;
+        PlayerManager.manager.player.ExitBlackhole();
     }
 
     private void DestroyHotKeys()
