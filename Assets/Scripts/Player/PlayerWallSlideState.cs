@@ -34,7 +34,7 @@ public class PlayerWallSlideState : PlayerState
         else
             player.SetVelocity(0, rb.velocity.y * 0.7f);
 
-        if (player.isGrounded())     
+        if (player.isGrounded() || !player.isWallDetected())     
             stateMachine.ChangeState(player.idleState);
     }
 }

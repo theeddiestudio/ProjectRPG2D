@@ -80,6 +80,9 @@ public class Player : Entity
         base.Update();
         stateMachine.currentState.Update();
         CheckInputDash();
+
+        if (Input.GetKeyDown(KeyCode.Z))
+            skill.crystal.CanUseSkill();
     }
 
     public void AssignNewSword(GameObject _newSword)
