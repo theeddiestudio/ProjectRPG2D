@@ -13,12 +13,14 @@ public class Clone_Skill : Skill
     [SerializeField] private bool createCloneOnDashStart;
     [SerializeField] private bool createCloneOnDashOver;
     [SerializeField] private bool createCloneOnCounterAttack;
+    [SerializeField] private bool canDuplicateClone;
+    [SerializeField] private float chanceOfDuplication;
 
     public void CreateClone(Transform _clonePosition, Vector3 _offset)
     {
         GameObject newClone = Instantiate(clonePrefab, player.transform.position, Quaternion.identity); // this chance is made by me, cause before it would instantiate in 0,0 position and closest enemy would be different and so flip would not work as well.
 
-        newClone.GetComponent<Clone_Skill_Controller>().SetupClone(_clonePosition, _offset, FindClosestEnemy(newClone.transform), cloneDuration, canAttack);
+        newClone.GetComponent<Clone_Skill_Controller>().SetupClone(_clonePosition, _offset, FindClosestEnemy(newClone.transform), cloneDuration, canAttack, canDuplicateClone, chanceOfDuplication);
     }
 
     public void CreateCloneOnDashStart()

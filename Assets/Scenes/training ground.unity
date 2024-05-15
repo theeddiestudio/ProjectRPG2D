@@ -1712,6 +1712,8 @@ MonoBehaviour:
   createCloneOnDashStart: 0
   createCloneOnDashOver: 0
   createCloneOnCounterAttack: 1
+  canDuplicateClone: 1
+  chanceOfDuplication: 40
 --- !u!114 &902079950
 MonoBehaviour:
   m_ObjectHideFlags: 0
