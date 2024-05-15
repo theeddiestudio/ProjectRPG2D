@@ -24,10 +24,13 @@ public class Crystal_Skill : Skill
             currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
             Crystal_Skill_Controller currentCrystalScript = currentCrystal.GetComponent<Crystal_Skill_Controller>();
 
-            currentCrystalScript.SetupCrystal(crystalDuration,moveSpeed, crystalGrowSpeed, canMoveToEnemy, canExplode);
+            currentCrystalScript.SetupCrystal(crystalDuration,moveSpeed, crystalGrowSpeed, FindClosestEnemy(currentCrystal.transform), canMoveToEnemy, canExplode);
         }
         else
         {
+            if (canMoveToEnemy)
+                return;
+
             Vector2 playerPos = player.transform.position;
 
             player.transform.position = currentCrystal.transform.position;
