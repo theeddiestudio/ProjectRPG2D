@@ -1780,6 +1780,14 @@ MonoBehaviour:
   canMoveToEnemy: 1
   moveSpeed: 4
   canExplode: 1
+  canUseMultiStack: 1
+  amountOfStacks: 3
+  multiStackCooldown: 4
+  useTimeWindow: 2.5
+  crystalLeft:
+  - {fileID: 1354343876202094789, guid: 93c217d7cd2a8904583fb442bc918ac1, type: 3}
+  - {fileID: 1354343876202094789, guid: 93c217d7cd2a8904583fb442bc918ac1, type: 3}
+  - {fileID: 1354343876202094789, guid: 93c217d7cd2a8904583fb442bc918ac1, type: 3}
 --- !u!1 &920976325
 GameObject:
   m_ObjectHideFlags: 0
