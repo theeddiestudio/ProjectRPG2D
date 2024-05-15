@@ -1780,10 +1780,11 @@ MonoBehaviour:
   crystalPrefab: {fileID: 1354343876202094789, guid: 93c217d7cd2a8904583fb442bc918ac1, type: 3}
   crystalDuration: 1.5
   crystalGrowSpeed: 3.5
-  canMoveToEnemy: 1
+  createCloneInstead: 1
+  canMoveToEnemy: 0
   moveSpeed: 4
-  canExplode: 1
-  canUseMultiStack: 1
+  canExplode: 0
+  canUseMultiStack: 0
   amountOfStacks: 3
   multiStackCooldown: 4
   useTimeWindow: 2.5

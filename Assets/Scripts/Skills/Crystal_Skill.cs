@@ -10,6 +10,9 @@ public class Crystal_Skill : Skill
 
     [SerializeField] private float crystalDuration;
     [SerializeField] private float crystalGrowSpeed;
+    
+    [Header("Crystal Mirage")]
+    [SerializeField] private bool createCloneInstead;
 
     [Header("Moving Crystal")]
     [SerializeField] private bool canMoveToEnemy;
@@ -45,11 +48,18 @@ public class Crystal_Skill : Skill
                 return;
 
             Vector2 playerPos = player.transform.position;
-
             player.transform.position = currentCrystal.transform.position;
-
             currentCrystal.transform.position = playerPos;
-            currentCrystal.GetComponent<Crystal_Skill_Controller>()?.FinishCrystal();
+
+            if (createCloneInstead)
+            {
+                SkillManager.manager.clone.CreateClone(currentCrystal.transform, Vector3.zero);
+                Destroy(currentCrystal);
+            }
+            else
+            {
+                currentCrystal.GetComponent<Crystal_Skill_Controller>()?.FinishCrystal();
+            }
         }
     }
 
