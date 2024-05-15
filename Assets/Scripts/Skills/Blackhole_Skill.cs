@@ -12,6 +12,7 @@ public class Blackhole_Skill : Skill
     [SerializeField] private float maxSize;
     [SerializeField] private float growSpeed;
     [SerializeField] private float shrinkSpeed;
+    [SerializeField] private float speedForCrystal;
 
     Blackhole_Skill_Controller currentBlackhole;
 
@@ -28,7 +29,7 @@ public class Blackhole_Skill : Skill
 
         currentBlackhole = newBlackhole.GetComponent<Blackhole_Skill_Controller>();
 
-        currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, amountOfAttacks, cloneAttackCooldown, blackholeDuration);
+        currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, speedForCrystal, amountOfAttacks, cloneAttackCooldown, blackholeDuration);
     }
 
     protected override void Start()
@@ -54,4 +55,6 @@ public class Blackhole_Skill : Skill
 
         return false;
     }
+
+    public float GetBlackholeRadius() => maxSize / 2;
 }

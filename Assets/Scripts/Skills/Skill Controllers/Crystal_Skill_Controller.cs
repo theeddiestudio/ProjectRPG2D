@@ -25,6 +25,16 @@ public class Crystal_Skill_Controller : MonoBehaviour
         closestTarget = _closestTarget;
     }
 
+    public void ChooseRandomEnemy(LayerMask _whatIsEnemy)
+    {
+        float radius = SkillManager.manager.blackhole.GetBlackholeRadius();
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, _whatIsEnemy);
+
+        if (colliders.Length > 0)
+            closestTarget = colliders[Random.Range(0, colliders.Length)].transform;
+    }
+
     private void Update()
     {
         crystalExistTimer -= Time.deltaTime;

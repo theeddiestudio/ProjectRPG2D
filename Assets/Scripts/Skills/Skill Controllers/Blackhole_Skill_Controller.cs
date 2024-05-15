@@ -9,6 +9,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     private float maxSize;
     private float growSpeed;
     private float shrinkSpeed;
+    private float speedForCrystal;
     private float blackholeTimer;
     
     private bool canGrow = true;
@@ -28,14 +29,18 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     public bool canPlayerExitState {  get; private set; }
 
 
-    public void SetupBlackhole(float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttacks, float _cloneAttackCooldown, float _blackholeDuration)
+    public void SetupBlackhole(float _maxSize, float _growSpeed, float _shrinkSpeed, float _speedForCrystal, int _amountOfAttacks, float _cloneAttackCooldown, float _blackholeDuration)
     {
         maxSize = _maxSize;
         growSpeed = _growSpeed;
         shrinkSpeed = _shrinkSpeed;
+        speedForCrystal = _speedForCrystal;
         amountOfAttacks = _amountOfAttacks;
         cloneAttackCooldown = _cloneAttackCooldown;
         blackholeTimer = _blackholeDuration;
+
+        if (SkillManager.manager.clone.crystalInstead)
+            canPlayerDisappear = false;
     }
 
     private void Update()
@@ -107,7 +112,15 @@ public class Blackhole_Skill_Controller : MonoBehaviour
             else
                 xOffset = -2;
 
-            SkillManager.manager.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+            if (SkillManager.manager.clone.crystalInstead)
+            {
+                SkillManager.manager.crystal.CreateCrystal(speedForCrystal);
+                SkillManager.manager.crystal.CurrentCrystalChooseRandomTarget();
+            }
+            else
+            {
+                SkillManager.manager.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+            }
 
             amountOfAttacks -= 1;
 

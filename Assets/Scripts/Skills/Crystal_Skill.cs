@@ -8,6 +8,8 @@ public class Crystal_Skill : Skill
     [SerializeField] private GameObject crystalPrefab;
     private GameObject currentCrystal;
 
+    [SerializeField] private LayerMask whatIsEnemy;
+
     [SerializeField] private float crystalDuration;
     [SerializeField] private float crystalGrowSpeed;
     
@@ -37,7 +39,7 @@ public class Crystal_Skill : Skill
 
         if (currentCrystal == null)
         {
-            CreateCrystal();
+            CreateCrystal(0);
         }
         else
         {
@@ -60,13 +62,21 @@ public class Crystal_Skill : Skill
         }
     }
 
-    public void CreateCrystal()
+    public void CreateCrystal(float _moveSpeed)
     {
+        float newSpeed = moveSpeed; // added by me so that speed can be passed.....
+        if (_moveSpeed != 0)
+            newSpeed = _moveSpeed;
+
         currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
         Crystal_Skill_Controller currentCrystalScript = currentCrystal.GetComponent<Crystal_Skill_Controller>();
 
-        currentCrystalScript.SetupCrystal(crystalDuration, moveSpeed, crystalGrowSpeed, FindClosestEnemy(currentCrystal.transform), canMoveToEnemy, canExplode);
+        currentCrystalScript.SetupCrystal(crystalDuration, newSpeed, crystalGrowSpeed, FindClosestEnemy(currentCrystal.transform), canMoveToEnemy, canExplode);
+        
+        currentCrystalScript.ChooseRandomEnemy(whatIsEnemy);
     }
+
+    public void CurrentCrystalChooseRandomTarget() => currentCrystal.GetComponent<Crystal_Skill_Controller>().ChooseRandomEnemy(whatIsEnemy);
 
     private bool CanUseMultiCrystal()
     {
