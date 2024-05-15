@@ -46,10 +46,8 @@ public class PlayerBlackholeState : PlayerState
             }
         }
 
-        /////////////////////////////////////////////////////////////////////////
-        // We exit the blackhole state once all the attacks are over. //////////
-        // NOTE TO SELF: I want to make it timed as well. /////////////////////
-        //////////////////////////////////////////////////////////////////////
+        if (player.skill.blackhole.isBlackholeFinished())
+            stateMachine.ChangeState(player.airState);
 
     }
 }

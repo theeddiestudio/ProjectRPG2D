@@ -93,11 +93,6 @@ public class Player : Entity
         Destroy(sword);
     }
 
-    public void ExitBlackhole()
-    {
-        stateMachine.ChangeState(airState);
-    }
-
     private void CheckInputDash()
     {
         if(isWallDetected())
