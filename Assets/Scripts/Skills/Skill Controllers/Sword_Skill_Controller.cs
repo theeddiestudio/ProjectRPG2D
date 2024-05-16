@@ -208,7 +208,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             SwordSkillDamage(enemy);
         }
 
-        collision.GetComponent<Enemy>()?.Damage();
+        collision.GetComponent<Enemy>()?.DamagEffect();
         SetupTargetsforBounce(collision);
 
         StuckIntoObject(collision);
@@ -216,7 +216,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void SwordSkillDamage(Enemy enemy)
     {
-        enemy.Damage();
+        enemy.DamagEffect();
         enemy.StartCoroutine("FreezeTimeFor", freezeTimeDuration);
     }
 

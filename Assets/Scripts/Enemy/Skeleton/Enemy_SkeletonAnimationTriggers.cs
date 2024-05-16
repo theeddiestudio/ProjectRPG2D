@@ -17,8 +17,11 @@ public class Enemy_SkeletonAnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Player>() != null)
             {
-                hit.GetComponent<Player>().Damage();
-                enemy.StartCoroutine("HitKnockBack");
+                PlayerStats _target = hit.GetComponent<PlayerStats>();
+
+                enemy.stats.DoDamage(_target);
+                // hit.GetComponent<Player>().Damage();
+                // enemy.StartCoroutine("HitKnockBack");
             }
         }
     }

@@ -17,8 +17,10 @@ public class PlayerAnimationTriggers : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<CharacterStats>().TakeDamage(player.stats.damage.GetValue());
-                hit.GetComponent<Enemy>().Damage();
+                EnemyStats _target = hit.GetComponent<EnemyStats>();
+                player.stats.DoDamage(_target);
+
+                // hit.GetComponent<CharacterStats>().TakeDamage(player.stats.damage.GetValue());
             }
         }
     }

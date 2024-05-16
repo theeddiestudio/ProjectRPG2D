@@ -311,15 +311,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 28475194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ff8fd635aa7ff4458572c141d54474a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 3
+    modifiers: 
   damage:
-    baseValue: 7
-    modifiers: 
+    baseValue: 5
+    modifiers: 02000000
   maxHp:
-    baseValue: 0
-    modifiers: 
+    baseValue: 100
+    modifiers: 32000000
   currentHp: 0
 --- !u!1 &174317895
 GameObject:
@@ -1276,8 +1279,8 @@ GameObject:
   - component: {fileID: 652147784}
   - component: {fileID: 652147783}
   - component: {fileID: 652147782}
-  - component: {fileID: 652147786}
   - component: {fileID: 652147781}
+  - component: {fileID: 652147786}
   m_Layer: 7
   m_Name: Enemy_Skeleton (1)
   m_TagString: Untagged
@@ -1441,14 +1444,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 652147780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
     modifiers: 
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1 &786906509
@@ -3156,8 +3162,8 @@ GameObject:
   - component: {fileID: 1297193060}
   - component: {fileID: 1297193059}
   - component: {fileID: 1297193058}
-  - component: {fileID: 1297193062}
   - component: {fileID: 1297193057}
+  - component: {fileID: 1297193062}
   m_Layer: 7
   m_Name: Enemy_Skeleton (4)
   m_TagString: Untagged
@@ -3321,14 +3327,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297193056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
     modifiers: 
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1 &1307477333
@@ -3572,8 +3581,8 @@ GameObject:
   - component: {fileID: 1410390244}
   - component: {fileID: 1410390243}
   - component: {fileID: 1410390242}
-  - component: {fileID: 1410390246}
   - component: {fileID: 1410390241}
+  - component: {fileID: 1410390246}
   m_Layer: 7
   m_Name: Enemy_Skeleton (5)
   m_TagString: Untagged
@@ -3737,14 +3746,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410390240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
     modifiers: 
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1 &1436436142
@@ -3846,8 +3858,8 @@ GameObject:
   - component: {fileID: 1482419085}
   - component: {fileID: 1482419084}
   - component: {fileID: 1482419083}
-  - component: {fileID: 1482419087}
   - component: {fileID: 1482419082}
+  - component: {fileID: 1482419087}
   m_Layer: 7
   m_Name: Enemy_Skeleton (3)
   m_TagString: Untagged
@@ -4011,14 +4023,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1482419081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
     modifiers: 
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1 &1482887088
@@ -4285,8 +4300,8 @@ GameObject:
   - component: {fileID: 1604978899}
   - component: {fileID: 1604978898}
   - component: {fileID: 1604978897}
-  - component: {fileID: 1604978901}
   - component: {fileID: 1604978896}
+  - component: {fileID: 1604978901}
   m_Layer: 7
   m_Name: Enemy_Skeleton (2)
   m_TagString: Untagged
@@ -4450,14 +4465,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1604978895}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
     modifiers: 
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1001 &1620291683
@@ -4564,8 +4582,8 @@ GameObject:
   - component: {fileID: 1686412753}
   - component: {fileID: 1686412752}
   - component: {fileID: 1686412751}
-  - component: {fileID: 1686412755}
   - component: {fileID: 1686412750}
+  - component: {fileID: 1686412755}
   m_Layer: 7
   m_Name: Enemy_Skeleton (6)
   m_TagString: Untagged
@@ -4729,14 +4747,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1686412749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
     modifiers: 
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1 &1702424032
@@ -5931,8 +5952,8 @@ GameObject:
   - component: {fileID: 1703929690}
   - component: {fileID: 1703929693}
   - component: {fileID: 1703929692}
-  - component: {fileID: 1703929694}
   - component: {fileID: 1703929691}
+  - component: {fileID: 1703929694}
   m_Layer: 7
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -6096,14 +6117,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1703929688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Script: {fileID: 11500000, guid: b70d752139c47744d853c4e8b576d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifiers: 
   damage:
     baseValue: 10
-    modifiers: 
+    modifiers: 14000000
   maxHp:
-    baseValue: 35
+    baseValue: 100
     modifiers: 
   currentHp: 0
 --- !u!1 &1781825349
