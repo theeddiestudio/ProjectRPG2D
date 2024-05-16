@@ -17,13 +17,13 @@ public class Clone_Skill : Skill
     [SerializeField] private float chanceOfDuplication;
 
     [Header("Crystal Instead of Clone")]
-    [SerializeField] private bool crystalInstead;
+    public bool crystalInstead;
 
     public void CreateClone(Transform _clonePosition, Vector3 _offset)
     {
         if (crystalInstead)
         {
-            SkillManager.manager.crystal.CreateCrystal();
+            SkillManager.manager.crystal.CreateCrystal(0);
             return;
         }
 

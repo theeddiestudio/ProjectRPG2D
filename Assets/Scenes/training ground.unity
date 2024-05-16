@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 28475199}
   - component: {fileID: 28475198}
   - component: {fileID: 28475197}
+  - component: {fileID: 28475200}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -301,6 +302,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMaterial: {fileID: 2100000, guid: 150434a092ce87346b7f99751104b65c, type: 2}
   flashTime: 0.15
+--- !u!114 &28475200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28475194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &174317895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1269,7 @@ GameObject:
   - component: {fileID: 652147784}
   - component: {fileID: 652147783}
   - component: {fileID: 652147782}
+  - component: {fileID: 652147786}
   - component: {fileID: 652147781}
   m_Layer: 7
   m_Name: Enemy_Skeleton (1)
@@ -1411,6 +1425,18 @@ Transform:
   - {fileID: 944944719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652147786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652147780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786906509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,13 +1786,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  amountOfAttacks: 5
+  amountOfAttacks: 25
   cloneAttackCooldown: 0.35
   blackholeDuration: 3
   blackholePrefab: {fileID: 7611892419505556627, guid: e249d66b308b9214da7ff0a2cddf55ab, type: 3}
   maxSize: 15
   growSpeed: 3
   shrinkSpeed: 6
+  speedForCrystal: 25
 --- !u!114 &902079952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,6 +1808,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   crystalPrefab: {fileID: 1354343876202094789, guid: 93c217d7cd2a8904583fb442bc918ac1, type: 3}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 128
   crystalDuration: 1.5
   crystalGrowSpeed: 3.5
   createCloneInstead: 1
@@ -3112,6 +3142,7 @@ GameObject:
   - component: {fileID: 1297193060}
   - component: {fileID: 1297193059}
   - component: {fileID: 1297193058}
+  - component: {fileID: 1297193062}
   - component: {fileID: 1297193057}
   m_Layer: 7
   m_Name: Enemy_Skeleton (4)
@@ -3267,6 +3298,18 @@ Transform:
   - {fileID: 2127281216}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297193062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297193056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1307477333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,6 +3551,7 @@ GameObject:
   - component: {fileID: 1410390244}
   - component: {fileID: 1410390243}
   - component: {fileID: 1410390242}
+  - component: {fileID: 1410390246}
   - component: {fileID: 1410390241}
   m_Layer: 7
   m_Name: Enemy_Skeleton (5)
@@ -3663,6 +3707,18 @@ Transform:
   - {fileID: 1578362373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410390246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410390240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1436436142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,6 +3818,7 @@ GameObject:
   - component: {fileID: 1482419085}
   - component: {fileID: 1482419084}
   - component: {fileID: 1482419083}
+  - component: {fileID: 1482419087}
   - component: {fileID: 1482419082}
   m_Layer: 7
   m_Name: Enemy_Skeleton (3)
@@ -3917,6 +3974,18 @@ Transform:
   - {fileID: 1436436144}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1482419087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482419081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1482887088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,6 +4250,7 @@ GameObject:
   - component: {fileID: 1604978899}
   - component: {fileID: 1604978898}
   - component: {fileID: 1604978897}
+  - component: {fileID: 1604978901}
   - component: {fileID: 1604978896}
   m_Layer: 7
   m_Name: Enemy_Skeleton (2)
@@ -4336,6 +4406,18 @@ Transform:
   - {fileID: 2030014832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604978901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604978895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1620291683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4440,6 +4522,7 @@ GameObject:
   - component: {fileID: 1686412753}
   - component: {fileID: 1686412752}
   - component: {fileID: 1686412751}
+  - component: {fileID: 1686412755}
   - component: {fileID: 1686412750}
   m_Layer: 7
   m_Name: Enemy_Skeleton (6)
@@ -4595,6 +4678,18 @@ Transform:
   - {fileID: 341833413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686412755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686412749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1702424032
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,6 +5882,7 @@ GameObject:
   - component: {fileID: 1703929690}
   - component: {fileID: 1703929693}
   - component: {fileID: 1703929692}
+  - component: {fileID: 1703929694}
   - component: {fileID: 1703929691}
   m_Layer: 7
   m_Name: Enemy_Skeleton
@@ -5942,6 +6038,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMaterial: {fileID: 2100000, guid: fb2bf0aadf7180a42a126961236c2de8, type: 2}
   flashTime: 0.2
+--- !u!114 &1703929694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703929688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1781825349
 GameObject:
   m_ObjectHideFlags: 0
