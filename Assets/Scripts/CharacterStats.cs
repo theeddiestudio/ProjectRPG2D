@@ -1,19 +1,28 @@
+using System;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int damage;
-    public int maxHp;
-
-    private int currentHp;
+    public Stat damage;
+    public Stat maxHp;
+    [Space]
+    [SerializeField] private int currentHp;
 
     private void Start()
     {
-        currentHp = maxHp;
+        currentHp = maxHp.GetValue();
     }
 
-    public void TakeDamage(int _damage)
+    public virtual void TakeDamage(int _damage)
     {
         currentHp -= _damage;
+
+        if (currentHp <= 0)
+            Die();
+    }
+
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
     }
 }

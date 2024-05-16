@@ -314,6 +314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 7
+    modifiers: 
+  maxHp:
+    baseValue: 0
+    modifiers: 
+  currentHp: 0
 --- !u!1 &174317895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1444,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1 &786906509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3310,6 +3324,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1 &1307477333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,6 +3740,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1 &1436436142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,6 +4014,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1 &1482887088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,6 +4453,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1001 &1620291683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4690,6 +4732,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1 &1702424032
 GameObject:
   m_ObjectHideFlags: 0
@@ -6050,6 +6099,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69a57e9cc62d7a459a0026083678b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage:
+    baseValue: 10
+    modifiers: 
+  maxHp:
+    baseValue: 35
+    modifiers: 
+  currentHp: 0
 --- !u!1 &1781825349
 GameObject:
   m_ObjectHideFlags: 0
